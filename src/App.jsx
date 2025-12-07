@@ -11,7 +11,8 @@ function App() {
   return (
     <>
       <Router>
-        <div className="min-h-screen">
+        <div className="min-h-screen bg-gray-900 font-sans text-gray-200">
+          <Navbar />
           <Routes>
             <Route></Route>
           </Routes>
