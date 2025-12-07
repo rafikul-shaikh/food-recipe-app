@@ -13,8 +13,9 @@ function App() {
       <Router>
         <div className="min-h-screen bg-gray-900 font-sans text-gray-200">
           <Navbar />
+          <Cuisine />
           <Routes>
-            <Route></Route>
+            <Route path="/" element={<HomeView />} />
           </Routes>
         </div>
       </Router>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Search, Zap } from "lucide-react";
+import { Search, CookingPot } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -8,6 +8,7 @@ const Navbar = () => {
   const searchHandler = (e) => {
     e.preventDefault();
     console.log("Called...");
+    setInput("");
   };
   return (
     <>
@@ -18,8 +19,8 @@ const Navbar = () => {
               to={"/"}
               className="flex items-center text-2xl font-black text-white hover:text-blue-500 transition duration-300 tracking-widest"
             >
-              <Zap className="w-7 h-7 mr-2 text-green-400 fill-yellow-400/20" />
-              <span className="text-yellow-500">Pro</span> chef
+              <CookingPot className="w-7 h-7 mr-2 text-green-400 fill-yellow-400/20" />
+              <span className="text-yellow-500">Food</span> Recipe
             </Link>
             <form
               onSubmit={searchHandler}
