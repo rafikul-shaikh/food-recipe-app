@@ -1,6 +1,7 @@
 import Navbar from "./component/Navbar";
 import Cuisine from "./component/Cuisine";
 import HomeView from "./component/HomeView";
+import RecipeDetailView from "./component/RecipeDetailView";
 import RecipeCard from "./component/RecipeCard";
 import SearchView from "./component/SearchView";
 import RecipeSlider from "./component/RecipeSlider";
@@ -16,6 +17,7 @@ function App() {
           <Cuisine />
           <Routes>
             <Route path="/" element={<HomeView />} />
+            <Route path="/recipe/:id" element={<RecipeDetailView />} />
           </Routes>
         </div>
       </Router>
