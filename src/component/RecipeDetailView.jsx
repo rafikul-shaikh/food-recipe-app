@@ -82,6 +82,17 @@ const RecipeDetailView = () => {
                   </li>
                 ))}
               </ul>
+
+              <div className="mt-8 pt-4 border-t border-gray-700">
+                <div className="text-lg text-gray-500 space-x-3 flex flex-wrap gap-y-2">
+                  <span className="bg-blue-600 text-white ml-3 px-4 py-1.5 rounded-full font-semibold text-sm shadow-md">
+                    {meal.strCategory}
+                  </span>
+                  <span className="bg-green-600 text-white ml-3 px-4 py-1.5 rounded-full font-semibold text-sm shadow-md">
+                    {meal.strArea}
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
