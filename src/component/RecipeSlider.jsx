@@ -6,7 +6,7 @@ import { Clock, Loader } from "lucide-react";
 
 const RecipeSlider = ({ title, fetchUrl }) => {
   const { data, loading, error } = useFetch(fetchUrl);
-  console.log("Calling meal data = ", data?.meals);
+  // console.log("Calling meal data = ", data?.meals);
   const meals = data?.meals || [];
 
   const settings = {
