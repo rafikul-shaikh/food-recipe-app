@@ -1,6 +1,6 @@
 import React from "react";
 import { useFetch } from "./useFetch";
-import RecipeCard from "./RecipeCard";
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import { Clock, Loader } from "lucide-react";
 
@@ -43,17 +43,19 @@ const TrendingRecipe = ({ title, fetchUrl }) => {
           <Slider {...settings}>
             {meals.map((meal) => (
               <div key={meal.idMeal} className="px-10 flex justify-center">
-                <div className="relative bg-gray-900 rounded-xl shadow-xl shadow-black/50 overflow-hidden group transform transition duration-500 cursor-pointer border border-gray-800 hover:shadow-blue-600/50 mb-8">
-                  {/* for hover Glow */}
-                  <div className="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-blue-500/80 transition duration-500"></div>
-                  <div className="flex justify-center items-center p-5">
-                    <img
-                      src={meal?.strMealThumb}
-                      alt=""
-                      className="h-[120px] w-[120px]  rounded-xl border border-yellow-400 transition duration-500 group-hover:scale-105"
-                    />
+                <Link to={`/recipe/${meal.idMeal}`}>
+                  <div className="relative bg-gray-900 rounded-xl shadow-xl shadow-black/50 overflow-hidden group transform transition duration-500 cursor-pointer border border-gray-800 hover:shadow-blue-600/50 mb-8">
+                    {/* for hover Glow */}
+                    <div className="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-blue-500/80 transition duration-500"></div>
+                    <div className="flex justify-center items-center p-5">
+                      <img
+                        src={meal?.strMealThumb}
+                        alt=""
+                        className="h-[120px] w-[120px]  rounded-xl border border-yellow-400 transition duration-500 group-hover:scale-105"
+                      />
+                    </div>
                   </div>
-                </div>
+                </Link>
               </div>
             ))}
           </Slider>

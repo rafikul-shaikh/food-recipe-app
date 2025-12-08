@@ -20,8 +20,8 @@ const RecipeDetailView = () => {
         Preparing your recipe details...
       </div>
     );
-  console.log(data);
 
+  console.log(data);
   // Array to store all ingredients in one structured list
   const ingredients = [];
 
@@ -38,6 +38,13 @@ const RecipeDetailView = () => {
       });
     }
   }
+
+  const instructions = meal.strInstructions
+    ? meal.strInstructions
+        .split(".")
+        .map((step) => step.trim())
+        .filter((step) => step.length > 0)
+    : [];
 
   return (
     <>
@@ -95,6 +102,26 @@ const RecipeDetailView = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="mt-15 pt-8 border-t border-gray-800">
+          <h2 className="text-3xl font-bold text-gray-200 flex mb-8 items-center ">
+            <BookOpen className="w-7 h-7 mr-3 text-blue-500" />
+            Detailed Preparation Steps
+          </h2>
+          <ol className="space-y-6 list-none text-gray-300">
+            {instructions.map((step, index) => (
+              <li
+                key={index}
+                className="text-lg leading-relaxed bg-gray-800 p-5 rounded-xl border-1-6 border-blue-500 shadow-lg shadow-black-30 transition duration-300 hover:bg-gray-700/50"
+              >
+                <span className="font-extrabold text-yellow-400 mr-3 text-xl">
+                  {index + 1}
+                </span>
+                {step.trim()}
+              </li>
+            ))}
+          </ol>
         </div>
       </main>
     </>
