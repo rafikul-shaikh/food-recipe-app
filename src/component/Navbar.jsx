@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import { Search, CookingPot } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = ({ handleSearch }) => {
   const [input, setInput] = useState("");
+  const navigate = useNavigate();
 
   const searchHandler = (e) => {
     e.preventDefault();
-    console.log("Called...");
-    setInput("");
+
+    if (input.trim()) {
+      handleSearch(input.trim());
+      navigate(`search/${input}`);
+      setInput("");
+    }
   };
   return (
     <>
