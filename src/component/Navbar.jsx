@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Search, CookingPot } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ handleSearch }) => {
   const [input, setInput] = useState("");
 
   const searchHandler = (e) => {
