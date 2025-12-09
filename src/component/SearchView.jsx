@@ -1,6 +1,7 @@
 import React from "react";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, Loader } from "lucide-react";
 import { Link } from "react-router-dom";
+import RecipeCard from "./RecipeCard";
 
 const SearchView = ({ meals, loading }) => {
   return (
@@ -13,6 +14,21 @@ const SearchView = ({ meals, loading }) => {
           <ChevronLeft className="w-6 h-6 mr-1 transition" />
           Back to Dashboard
         </Link>
+
+        {loading && (
+          <div className="text-center p-8 text-gray-300">
+            <Loader className="animate-spin inline-block mr-2 text-blue-400" />
+            Searching the database...
+          </div>
+        )}
+
+        {!loading && meals.length > 0 && (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
+            {meals.map((meal, index) => (
+              <RecipeCard key={index} meal={meal} />
+            ))}
+          </div>
+        )}
       </main>
     </>
   );
