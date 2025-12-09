@@ -14,6 +14,38 @@ function App() {
   const [searchResult, setSearchResult] = useState([]);
   const [searchLoading, setSearchLoading] = useState(false);
 
+  const filterRecipe = useCallback(async (query, filterType) => {
+    setSearchResult(query);
+    setSearchLoading(true);
+    try {
+      const res = await fetch(`${API_URL}filter.php?${filterType}=${query}`);
+      if (!res.ok) throw new Error(`Error: ${res.status}`);
+
+      const result = await res.json();
+      setSearchResult(result?.meals || []);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setSearchLoading(false);
+    }
+  }, []);
+
+  // filter by category
+  const filterByCategory = useCallback(
+    (category) => {
+      filterRecipe(category, "c");
+    },
+    [filterRecipe]
+  );
+
+  // filter by area
+  const filterByArea = useCallback(
+    (area) => {
+      filterRecipe(area, "a");
+    },
+    [filterRecipe]
+  );
+
   const handleSearch = useCallback(async (query) => {
     setSearchResult(query);
     setSearchLoading(true);
@@ -35,7 +67,7 @@ function App() {
       <Router>
         <div className="min-h-screen bg-gray-900 font-sans text-gray-200">
           <Navbar handleSearch={handleSearch} />
-          <Cuisine />
+          <Cuisine filterByArea={filterByArea} />
           <Routes>
             <Route path="/" element={<HomeView />} />
             <Route path="/recipe/:id" element={<RecipeDetailView />} />
