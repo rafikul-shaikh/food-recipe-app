@@ -69,7 +69,10 @@ function App() {
           <Navbar handleSearch={handleSearch} />
           <Cuisine filterByArea={filterByArea} />
           <Routes>
-            <Route path="/" element={<HomeView />} />
+            <Route
+              path="/"
+              element={<HomeView filterByCategory={filterByCategory} />}
+            />
             <Route path="/recipe/:id" element={<RecipeDetailView />} />
             <Route
               path="/search/:query"
