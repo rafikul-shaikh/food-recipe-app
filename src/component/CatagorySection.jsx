@@ -21,14 +21,18 @@ const CatagorySection = ({ filterByCategory }) => {
           <Utensils className="w-6 h-6 mr-3 text-blue-600" />
           Quick Filter by Primary Ingredient
         </h2>
-
-        <div className="gird grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 px-2">
           {featuredCategories.map((cat, index) => (
             <Link
               to={`search/${cat}`}
               key={index}
               onClick={() => filterByCategory(cat)}
-              className="bg-gray-800 p-5 sm:p-5 rounded-xl shadow-xl shadow-black/50 transition duration-300 text-center font-semibold text-gray-100 border border-gray-700 hover:border-blue-500 hover:text-blue-400 transform hover:scale-[1.05] hover:bg-gray-700/50 mx-5 mt-3"
+              className="bg-gray-800 p-4 rounded-xl shadow-md text-center 
+                 font-medium text-gray-100 border border-gray-700 
+                 hover:border-blue-500 hover:text-blue-400 
+                 transition-all duration-300 
+                 hover:scale-[1.03] hover:bg-gray-700/50 
+                 break-words text-sm sm:text-base"
             >
               {cat}
             </Link>
