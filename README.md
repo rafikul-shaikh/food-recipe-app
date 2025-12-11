@@ -1,16 +1,85 @@
-# React + Vite
+# Food Recipe App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## ✅ Project Overview  
+The Food Recipe App is a fully-functional recipe browsing platform built using React, TailwindCSS, React Router, and external APIs.
+It allows users to:
+-Search recipes in real-time
+-Browse trending & quick meal categories
+-Explore global cuisines
+-View detailed recipe information
+-Read step-by-step cooking instructions
+-View ingredient + measurements dynamically
+-Navigate smoothly with a clean UI and routing
 
-Currently, two official plugins are available:
+## 🚀 Features  
+- Browse a list of meals / recipes (with images, names)  
+- Search by recipe name / keyword (with loading state)  
+- Filter recipes by cuisine/ingredient/category  
+- View recipe detail: ingredients list, cooking instructions, images  
+- Responsive design (mobile / desktop) using Tailwind  
+- Smooth UI with React components, routing via React Router
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🧰 Tech Stack  
+Frontend
+⚛️ React 19
+⚡ Vite
+🎨 Tailwind CSS
+🔀 React Router v7
+🎯 Lucide Icons
+🏎️ React Slick Slider
+API
+🍜 TheMealDB (https://www.themealdb.com/)
 
-## React Compiler
+## 📁 Project Structure  
+food-recipe-app/
+│
+├── node_modules/
+├── public/
+├── src/
+│   ├── assets/
+│   │   └── react.svg
+│   │
+│   ├── component/
+│   │   ├── CatagorySection.jsx
+│   │   ├── Cuisine.jsx
+│   │   ├── HomeView.jsx
+│   │   ├── Navbar.jsx
+│   │   ├── RecipeCard.jsx
+│   │   ├── RecipeDetailView.jsx
+│   │   ├── RecipeSlider.jsx
+│   │   ├── SearchView.jsx
+│   │   └── TrendingRecipe.jsx
+│   │
+│   ├── JS/
+│   │   └── fetch.js
+│   │
+│   ├── App.jsx
+│   ├── index.css
+│   ├── main.jsx
+│   └── vite.config.js
+│
+├── .gitignore
+├── README.md
+├── package.json
+├── package-lock.json
+└── index.html
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+##  Motivation / What I Learned  
+I built this Food Recipe App to strengthen my skills in API integration, React, and Tailwind CSS while creating a fully responsive, 
+real-world application. The project helped me practise working with external APIs, managing state and props, 
+implementing React Router, and handling asynchronous data such as loading/error states. 
+I also learned how to render dynamic data, build reusable components, and structure a clean front-end codebase.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## How to Run Locally  
+1. Clone the repo: `git clone https://github.com/rafikul-shaikh/food-recipe-app.git`  
+2. Install dependencies: `npm install`  
+3. Start dev server: `npm run dev`  (or `npm start` depending on config)  
+4. Open in browser: `http://localhost:5173` (or default port)  
+
+##  Future Improvements  
+1. favorite recipes (localStorage)
+2. User login system (Firebase)
+3. Dark/Light theme toggle
+4. Pagination for search results
+
