@@ -18,7 +18,23 @@ const RecipeSlider = ({ title, fetchUrl }) => {
     speed: 600,
     autoplaySpeed: 2000,
     cssEase: "linear",
+
+    responsive: [
+      {
+        breakpoint: 1024, // tablets
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 640, // mobile
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
+
   if (loading)
     return (
       <div className="text-center p-8 text-gray-300">
@@ -37,7 +53,10 @@ const RecipeSlider = ({ title, fetchUrl }) => {
         <div style={{ width: "90%", margin: "auto", padding: "10px" }}>
           <Slider {...settings}>
             {meals.map((meal) => (
-              <div key={meal.idMeal} className="px-10 flex justify-center">
+              <div
+                key={meal.idMeal}
+                className="px-3 sm:px-6 flex justify-center"
+              >
                 <RecipeCard meal={meal} />
               </div>
             ))}

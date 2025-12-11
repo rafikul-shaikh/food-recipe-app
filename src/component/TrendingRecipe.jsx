@@ -19,11 +19,31 @@ const TrendingRecipe = ({ title, fetchUrl }) => {
     speed: 600,
     autoplaySpeed: 2000,
     cssEase: "linear",
-
-    // to remove arrow in TrendingRecipe
     appendDots: () => null,
     customPaging: () => null,
+
+    responsive: [
+      {
+        breakpoint: 1024, // tablets
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 640, // mobile
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 480, // very small phones
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
+
   if (loading)
     return (
       <div className="text-center p-8 text-gray-300">
@@ -42,16 +62,19 @@ const TrendingRecipe = ({ title, fetchUrl }) => {
         <div className="w-full mx-auto">
           <Slider {...settings}>
             {meals.map((meal) => (
-              <div key={meal.idMeal} className="px-10 flex justify-center">
+              <div
+                key={meal.idMeal}
+                className="px-3 sm:px-6 flex justify-center"
+              >
                 <Link to={`/recipe/${meal.idMeal}`}>
                   <div className="relative bg-gray-900 rounded-xl shadow-xl shadow-black/50 overflow-hidden group transform transition duration-500 cursor-pointer border border-gray-800 hover:shadow-blue-600/50 mb-8">
                     {/* for hover Glow */}
                     <div className="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-blue-500/80 transition duration-500"></div>
-                    <div className="flex justify-center items-center p-5">
+                    <div className="flex justify-center items-center p-3 sm:p-5">
                       <img
                         src={meal?.strMealThumb}
                         alt=""
-                        className="h-[120px] w-[120px]  rounded-xl border border-yellow-400 transition duration-500 group-hover:scale-105"
+                        className="w-full max-w-[160px] h-auto rounded-xl border border-yellow-400 transition duration-500 group-hover:scale-105 object-cover"
                       />
                     </div>
                   </div>
