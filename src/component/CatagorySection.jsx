@@ -32,7 +32,8 @@ const CatagorySection = ({ filterByCategory }) => {
                  hover:border-blue-500 hover:text-blue-400 
                  transition-all duration-300 
                  hover:scale-[1.03] hover:bg-gray-700/50 
-                 break-words text-sm sm:text-base"
+                 wrap-break-word
+                 text-sm sm:text-base"
             >
               {cat}
             </Link>

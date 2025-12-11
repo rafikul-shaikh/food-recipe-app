@@ -14,8 +14,9 @@ const RecipeCard = ({ meal }) => {
             alt=""
             className="
               w-full 
-              max-w-[200px] 
-              sm:max-w-[240px] 
+              max-w-[200px]
+              sm:max-w-60
+              
               rounded-xl 
               border border-yellow-400 
               transition duration-500 
