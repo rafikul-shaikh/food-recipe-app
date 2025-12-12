@@ -5,8 +5,7 @@ import Slider from "react-slick";
 import { Clock, Loader } from "lucide-react";
 
 const RecipeSlider = ({ title, fetchUrl }) => {
-  const { data, loading, error } = useFetch(fetchUrl);
-  // console.log("Calling meal data = ", data?.meals);
+  const { data, loading } = useFetch(fetchUrl);
   const meals = data?.meals || [];
 
   const settings = {
@@ -21,16 +20,12 @@ const RecipeSlider = ({ title, fetchUrl }) => {
 
     responsive: [
       {
-        breakpoint: 1024, // tablets
-        settings: {
-          slidesToShow: 2,
-        },
+        breakpoint: 1024,
+        settings: { slidesToShow: 2 },
       },
       {
-        breakpoint: 640, // mobile
-        settings: {
-          slidesToShow: 1,
-        },
+        breakpoint: 640,
+        settings: { slidesToShow: 1 },
       },
     ],
   };
@@ -44,26 +39,23 @@ const RecipeSlider = ({ title, fetchUrl }) => {
     );
 
   return (
-    <>
-      <section>
-        <h2 className="text-3xl font-extrabold text-gray-100 mb-6 tracking-tight border-1-4 border-yellow-400 pl-4 flex items-center">
-          <Clock className="w-6 h-6 mr-3 text-blue-600" />
-          {title}
-        </h2>
-        <div style={{ width: "90%", margin: "auto", padding: "10px" }}>
-          <Slider {...settings}>
-            {meals.map((meal) => (
-              <div
-                key={meal.idMeal}
-                className="px-3 sm:px-6 flex justify-center"
-              >
-                <RecipeCard meal={meal} />
-              </div>
-            ))}
-          </Slider>
-        </div>
-      </section>
-    </>
+    <section>
+      <h2 className="text-3xl font-extrabold text-gray-100 mb-6 tracking-tight pl-4 flex items-center">
+        <Clock className="w-6 h-6 mr-3 text-blue-600" />
+        {title}
+      </h2>
+
+      {/* RESPONSIVE FIX */}
+      <div className="w-full px-2 sm:px-4 overflow-hidden">
+        <Slider {...settings}>
+          {meals.map((meal) => (
+            <div key={meal.idMeal} className="px-2 flex justify-center">
+              <RecipeCard meal={meal} />
+            </div>
+          ))}
+        </Slider>
+      </div>
+    </section>
   );
 };
 
