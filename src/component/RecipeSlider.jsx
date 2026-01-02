@@ -11,6 +11,7 @@ const RecipeSlider = ({ title, fetchUrl }) => {
   const settings = {
     dots: false,
     infinite: true,
+    arrows: true, // ✅ ENABLE ARROWS
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
@@ -21,35 +22,46 @@ const RecipeSlider = ({ title, fetchUrl }) => {
     responsive: [
       {
         breakpoint: 1024,
-        settings: { slidesToShow: 2 },
+        settings: {
+          slidesToShow: 2,
+          arrows: true,
+        },
       },
       {
         breakpoint: 640,
-        settings: { slidesToShow: 1 },
+        settings: {
+          slidesToShow: 1,
+          arrows: true, // ✅ FORCE ARROWS ON MOBILE
+        },
       },
     ],
   };
 
-  if (loading)
+  if (loading) {
     return (
-      <div className="text-center p-8 text-gray-300">
+      <div className="text-center p-6 text-gray-300">
         <Loader className="animate-spin inline-block mr-2 text-yellow-600" />
         Loading {title}...
       </div>
     );
+  }
 
   return (
-    <section>
-      <h2 className="text-3xl font-extrabold text-gray-100 mb-6 tracking-tight pl-4 flex items-center">
-        <Clock className="w-6 h-6 mr-3 text-blue-600" />
+    <section className="mb-8">
+      {/* RESPONSIVE TITLE */}
+      <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-gray-100 mb-4 sm:mb-6 tracking-tight pl-3 sm:pl-4 flex items-center">
+        <Clock className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3 text-blue-600" />
         {title}
       </h2>
 
-      {/* RESPONSIVE FIX */}
-      <div className="w-full px-2 sm:px-4 overflow-hidden">
+      {/* SLIDER */}
+      <div className="w-full px-1 sm:px-4 overflow-hidden">
         <Slider {...settings}>
           {meals.map((meal) => (
-            <div key={meal.idMeal} className="px-2 flex justify-center">
+            <div
+              key={meal.idMeal}
+              className="px-1 sm:px-10  flex justify-center"
+            >
               <RecipeCard meal={meal} />
             </div>
           ))}
