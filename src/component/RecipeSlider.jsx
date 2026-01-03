@@ -11,27 +11,25 @@ const RecipeSlider = ({ title, fetchUrl }) => {
   const settings = {
     dots: false,
     infinite: true,
-    arrows: true, // ✅ ENABLE ARROWS
-    slidesToShow: 3,
+    arrows: true,
+    slidesToShow: 3, // 👈 MOBILE FIRST (390px)
     slidesToScroll: 1,
     autoplay: true,
     speed: 600,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 2500,
     cssEase: "linear",
 
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 640,
         settings: {
           slidesToShow: 2,
-          arrows: true,
         },
       },
       {
-        breakpoint: 640,
+        breakpoint: 1024,
         settings: {
-          slidesToShow: 1,
-          arrows: true, // ✅ FORCE ARROWS ON MOBILE
+          slidesToShow: 3,
         },
       },
     ],
@@ -39,7 +37,7 @@ const RecipeSlider = ({ title, fetchUrl }) => {
 
   if (loading) {
     return (
-      <div className="text-center p-6 text-gray-300">
+      <div className="text-center py-6 text-gray-300">
         <Loader className="animate-spin inline-block mr-2 text-yellow-600" />
         Loading {title}...
       </div>
@@ -48,20 +46,17 @@ const RecipeSlider = ({ title, fetchUrl }) => {
 
   return (
     <section className="mb-8">
-      {/* RESPONSIVE TITLE */}
-      <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-gray-100 mb-4 sm:mb-6 tracking-tight pl-3 sm:pl-4 flex items-center">
-        <Clock className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3 text-blue-600" />
+      {/* TITLE — MOBILE FIRST */}
+      <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-gray-100 mb-4 flex items-center px-3">
+        <Clock className="w-5 h-5 sm:w-6 sm:h-6 mr-2 text-blue-600" />
         {title}
       </h2>
 
-      {/* SLIDER */}
-      <div className="w-full px-1 sm:px-4 overflow-hidden">
+      {/* SLIDER WRAPPER — SAFE FOR 390px */}
+      <div className="w-full px-2 sm:px-4 md:px-6 overflow-hidden">
         <Slider {...settings}>
           {meals.map((meal) => (
-            <div
-              key={meal.idMeal}
-              className="px-1 sm:px-10  flex justify-center"
-            >
+            <div key={meal.idMeal} className="px-2 sm:px-3 flex justify-center">
               <RecipeCard meal={meal} />
             </div>
           ))}
