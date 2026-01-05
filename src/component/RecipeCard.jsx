@@ -7,19 +7,29 @@ const RecipeCard = ({ meal }) => {
       {/* CARD */}
       <div
         className="
-          w-full max-w-[260px]
-          bg-gray-800
-          rounded-xl
-          border border-gray-700
-          shadow-lg shadow-black/40
-          overflow-hidden
-          transition duration-300
-          hover:shadow-blue-600/40
-          flex flex-col
-        "
+            relative
+            w-full
+            max-w-[180px]
+            sm:max-w-[220px]
+            lg:max-w-[260px]
+            xl:max-w-[280px]
+            bg-gray-800
+            rounded-xl
+            shadow-lg shadow-black/40
+            overflow-hidden  group
+            transition duration-500 cursor-pointer border border-gray-800
+            hover:shadow-blue-600/40
+            flex flex-col
+          "
       >
+        {/* Hover Glow */}
+        <div
+          className="absolute inset-0 rounded-xl border-2 border-transparent
+                   group-hover:border-blue-500/80 transition duration-500"
+        ></div>
+
         {/* IMAGE */}
-        <div className="aspect-square p-3">
+        <div className="aspect-square p-3 sm:p-6">
           <img
             src={meal?.strMealThumb}
             alt={meal?.strMeal}

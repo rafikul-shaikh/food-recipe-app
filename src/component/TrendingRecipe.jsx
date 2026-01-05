@@ -51,13 +51,26 @@ const TrendingRecipe = ({ title, fetchUrl }) => {
       </h2>
 
       {/* SLIDER WRAPPER — first Design at 390px  */}
-      <div className="w-full mb-20 px-2 sm:px-4 overflow-hidden">
+      <div className="w-full mb-20 px-2 sm:px-4 md:px-6 lg:px-8 overflow-hidden">
         <Slider {...settings}>
           {meals.map((meal) => (
             <div key={meal.idMeal} className="px-2 flex justify-center ">
               <Link to={`/recipe/${meal.idMeal}`} className="block">
-                <div className="w-40 h-40 relative bg-gray-800 rounded-xl py-6 px-4 shadow-xl shadow-black/50 overflow-hidden group border border-gray-800 hover:shadow-blue-600/50">
-                  <div className="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-blue-500/80 transition duration-500"></div>
+                {/* Card */}
+                <div
+                  className=" relative bg-gray-800 rounded-xl py-6 px-4 shadow-xl 
+                shadow-black/50 overflow-hidden group border border-gray-800 hover:shadow-blue-600/50
+                 w-28 h-28         
+                sm:w-32 sm:h-32    
+                md:w-36 md:h-36    
+                lg:w-40 lg:h-40   
+                xl:w-44 xl:h-44 "
+                >
+                  {/* Hover Glow */}
+                  <div
+                    className="absolute inset-0 rounded-xl border-2 border-transparent
+                   group-hover:border-blue-500/80 transition duration-500"
+                  ></div>
 
                   {/*  IMAGE  */}
                   <img
