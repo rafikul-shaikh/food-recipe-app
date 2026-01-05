@@ -17,7 +17,7 @@ const CatagorySection = ({ filterByCategory }) => {
   return (
     <>
       <section>
-        <h2 className="text-3xl font-extrabold text-gray-100 mb-6 tracking-tight border-1-4 border-yellow-400 pl-4 flex items-center">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-gray-100 mb-6 tracking-tight border-1-4 border-yellow-400 pl-4 flex items-center">
           <Utensils className="w-6 h-6 mr-3 text-blue-600" />
           Quick Filter by Primary Ingredient
         </h2>

@@ -12,7 +12,7 @@ const TrendingRecipe = ({ title, fetchUrl }) => {
     arrows: false,
     dots: false,
     infinite: true,
-    slidesToShow: 5,
+    slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
     speed: 1800,
@@ -25,12 +25,12 @@ const TrendingRecipe = ({ title, fetchUrl }) => {
         settings: { slidesToShow: 3 },
       },
       {
-        breakpoint: 640,
-        settings: { slidesToShow: 2 },
+        breakpoint: 768,
+        settings: { slidesToShow: 2.2 },
       },
       {
         breakpoint: 480,
-        settings: { slidesToShow: 1 },
+        settings: { slidesToShow: 1.4 },
       },
     ],
   };
@@ -45,33 +45,38 @@ const TrendingRecipe = ({ title, fetchUrl }) => {
 
   return (
     <section>
-      <h2 className="text-3xl font-extrabold text-gray-100 mb-6 tracking-tight pl-4 flex items-center">
+      <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold  text-gray-100 mb-6 tracking-tight pl-4 flex items-center">
         <Clock className="w-6 h-6 mr-3 text-blue-600" />
         {title}
       </h2>
 
       {/* SLIDER WRAPPER — first Design at 390px  */}
-      <div className="w-full mb-20 px-2 sm:px-4 md:px-6 lg:px-8 overflow-hidden">
+      <div className="w-full  px-2 sm:px-6 md:px-10 overflow-hidden">
         <Slider {...settings}>
           {meals.map((meal) => (
-            <div key={meal.idMeal} className="px-2 flex justify-center ">
+            <div key={meal.idMeal} className="px-2  ">
               <Link to={`/recipe/${meal.idMeal}`} className="block">
                 {/* Card */}
                 <div
-                  className=" relative bg-gray-800 rounded-xl py-6 px-4 shadow-xl 
+                  className=" relative bg-gray-800 rounded-xl  shadow-xl 
                 shadow-black/50 overflow-hidden group border border-gray-800 hover:shadow-blue-600/50
-                 w-28 h-28         
-                sm:w-32 sm:h-32    
-                md:w-36 md:h-36    
-                lg:w-40 lg:h-40   
-                xl:w-44 xl:h-44 "
+                aspect-square
+                max-w-40
+                mx-auto
+                 p-2 sm:p-3 lg:p-6
+                 "
                 >
+                  {/* py-6 px-4 *
+                                w-32 h-32
+                  sm:w-36 sm:h-36
+                  lg:w-40 lg:h-40
+                  mx-auto
+                  p-2/}
                   {/* Hover Glow */}
                   <div
                     className="absolute inset-0 rounded-xl border-2 border-transparent
                    group-hover:border-blue-500/80 transition duration-500"
                   ></div>
-
                   {/*  IMAGE  */}
                   <img
                     src={meal?.strMealThumb}
